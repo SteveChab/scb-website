@@ -73,6 +73,8 @@
       margin: 1.15em 0;
     }
 
+    li { margin-bottom: .5em }
+
     sup { line-height: 0 }
 
     s { text-decoration-thickness: .125em }
@@ -81,7 +83,7 @@
       color: #000;
       text-decoration-skip-ink: none;
       text-decoration-thickness: .125em;
-      text-underline-offset: 5px;
+      text-underline-offset: .225em;
     }
 
     a:hover {
@@ -305,7 +307,23 @@
       body {
         --text-margin: 4rem;
         --icon-size: 1.5rem;
-        font-size: .85em;
+        font-size: .85rem;
+      }
+
+      .header {
+        padding: var(--text-margin);
+        padding-bottom: 1em;
+      }
+
+      .header__nav-concerts__heading,
+      .header__nav-concerts__list,
+      .header__nav-concerts__list__item,
+      .header__nav-concerts__list__item__link {
+        font-size: .85rem;
+      }
+
+      .header__copyright {
+        font-size: 10px;
       }
 
       .page--poem,
@@ -316,7 +334,12 @@
         padding-left: 0;
       }
 
-      .art__heading {left: 0}
+      .art__heading {
+        left: 0;
+        margin: 0;
+        bottom: 0;
+        border-radius: 0 .5em 0 0;
+      }
       .art__img {object-fit: cover}
 
       .toc__nav__list {
