@@ -151,7 +151,7 @@
       position: absolute;
       padding: .25em .5em;
       margin: 0 0 0 var(--text-margin);
-      bottom: 3rem;
+      bottom: 7vh;
       left: var(--container-padding-h);
       text-align: center;
       background-color: var(--color-transparent-white);
@@ -318,6 +318,11 @@
         --text-margin: 4rem;
         --icon-size: 1.5rem;
         --mobile-font-size: .75rem;
+      }
+
+      .page p,
+      .toc,
+      ul {
         font-size: var(--mobile-font-size);
       }
 
@@ -351,10 +356,8 @@
       .page--text { text-align: left }
 
       .art__heading {
-        left: 0;
         margin: 0;
-        bottom: 0;
-        border-radius: 0 .5em 0 0;
+        left: var(--text-margin);
       }
       .art__img {object-fit: cover}
 
