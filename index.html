@@ -944,25 +944,25 @@ document.addEventListener('keydown', function(event) {
 // Swipe events
 // https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
 
-var touchstartX = 0,
-    touchendX = 0;
+// var touchstartX = 0,
+//     touchendX = 0;
     
-function swipePage() {
-  if (touchendX < touchstartX) {
-    window.location.hash = 'next';
-  } else if (touchendX > touchstartX) {
-    window.location.hash = 'prev';
-  }
-}
+// function swipePage() {
+//   if (touchendX < touchstartX) {
+//     window.location.hash = 'next';
+//   } else if (touchendX > touchstartX) {
+//     window.location.hash = 'prev';
+//   }
+// }
 
-document.addEventListener('touchstart', function(e) {
-  touchstartX = e.changedTouches[0].screenX;
-})
+// document.addEventListener('touchstart', function(e) {
+//   touchstartX = e.changedTouches[0].screenX;
+// })
 
-document.addEventListener('touchend', function(e) {
-  touchendX = e.changedTouches[0].screenX;
-  swipePage();
-})
+// document.addEventListener('touchend', function(e) {
+//   touchendX = e.changedTouches[0].screenX;
+//   swipePage();
+// })
 
 </script>
 </body>
