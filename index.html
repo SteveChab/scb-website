@@ -907,25 +907,25 @@
   </div>
 <script>
 function handleHashChange() {
-    var hash = window.location.hash.substring(1),
-        activePageEl = document.querySelector('.page:not([hidden])');
+  var hash = window.location.hash.substring(1),
+      activePageEl = document.querySelector('.page:not([hidden])');
 
-    if (hash === 'next' || hash === 'prev') {
-      var pagesNodeList = document.querySelectorAll('.page'),
-          newActivePageEl = // assumes all .page elements are siblings
-            hash === 'next' ? activePageEl.nextElementSibling || pagesNodeList[0]
-            : activePageEl.previousElementSibling || pagesNodeList[pagesNodeList.length-1];
+  if (hash === 'next' || hash === 'prev') {
+    var pagesNodeList = document.querySelectorAll('.page'),
+        newActivePageEl = // assumes all .page elements are siblings
+          hash === 'next' ? activePageEl.nextElementSibling || pagesNodeList[0]
+          : activePageEl.previousElementSibling || pagesNodeList[pagesNodeList.length-1];
 
-      hash = newActivePageEl.id;
-      window.location.hash = newActivePageEl.id;
-    }
+    hash = newActivePageEl.id;
+    window.location.hash = newActivePageEl.id;
+  }
 
-    var targetElement = document.getElementById(hash) || document.getElementById('home');
+  var targetElement = document.getElementById(hash) || document.getElementById('home');
 
-    activePageEl.hidden = true;
-    targetElement.hidden = false;
-    document.body.setAttribute('data-page-type', targetElement.classList.value);
-    targetElement.focus();
+  activePageEl.hidden = true;
+  targetElement.hidden = false;
+  document.body.setAttribute('data-page-type', targetElement.classList.value);
+  targetElement.focus();
 }
 
 window.addEventListener('load', function() {
@@ -940,6 +940,30 @@ document.addEventListener('keydown', function(event) {
     window.location.hash = 'next';
   }
 });
+
+// Swipe events
+// https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
+
+var touchstartX = 0,
+    touchendX = 0;
+    
+function swipePage() {
+  if (touchendX < touchstartX) {
+    window.location.hash = 'prev';
+  } else if (touchendX > touchstartX) {
+    window.location.hash = 'next';
+  }
+}
+
+document.addEventListener('touchstart', function(e) {
+  touchstartX = e.changedTouches[0].screenX;
+})
+
+document.addEventListener('touchend', function(e) {
+  touchendX = e.changedTouches[0].screenX;
+  swipePage();
+})
+
 </script>
 </body>
 </html>
