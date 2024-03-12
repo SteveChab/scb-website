@@ -949,9 +949,9 @@ var touchstartX = 0,
     
 function swipePage() {
   if (touchendX < touchstartX) {
-    window.location.hash = 'prev';
-  } else if (touchendX > touchstartX) {
     window.location.hash = 'next';
+  } else if (touchendX > touchstartX) {
+    window.location.hash = 'prev';
   }
 }
 
