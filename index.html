@@ -943,26 +943,32 @@ document.addEventListener('keydown', function(event) {
 
 // Swipe events
 // https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
+// MAKE SURE SWIPE IS GREAT THAN A CERTAIN AMOUNT BEFORE DOING ANYTHING
 
-// var touchstartX = 0,
-//     touchendX = 0;
+var touchstartX = 0,
+    touchendX = 0;
     
-// function swipePage() {
-//   if (touchendX < touchstartX) {
-//     window.location.hash = 'next';
-//   } else if (touchendX > touchstartX) {
-//     window.location.hash = 'prev';
-//   }
-// }
+function swipePage() {
+  var regex = /^(-?\d{1,2}|100)$/, // is between -100 & 100
+      isTinySwipe = regex.test(touchstartX - touchendX);
 
-// document.addEventListener('touchstart', function(e) {
-//   touchstartX = e.changedTouches[0].screenX;
-// })
+  if (!isTinySwipe) {
+    if (touchendX < touchstartX) {
+      window.location.hash = 'next';
+    } else {
+      window.location.hash = 'prev';
+    }
+  }
+}
 
-// document.addEventListener('touchend', function(e) {
-//   touchendX = e.changedTouches[0].screenX;
-//   swipePage();
-// })
+document.addEventListener('touchstart', function(e) {
+  touchstartX = e.changedTouches[0].screenX;
+})
+
+document.addEventListener('touchend', function(e) {
+  touchendX = e.changedTouches[0].screenX;
+  swipePage();
+})
 
 </script>
 </body>
