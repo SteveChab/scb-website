@@ -171,13 +171,8 @@
       padding: 0;
     }
 
-    .nav-main {
-      height: 0;
-    }
-
-    .nav-main__list {
-      height: 0;
-    }
+    .nav-main, .nav-main__list {height:0}
+    .nav-main__list__item {margin:0}
 
     .nav-main__list__item__link {
       height: calc(2 * var(--icon-size));
@@ -345,10 +340,11 @@
 
       .art__heading {
         margin: 0;
-        left: 20vh;
+        left: var(--text-margin);
         bottom: 20vh;
       }
       .art__img {object-fit: cover}
+      .art__img--artifacts {object-position: 63%}
 
       .toc__nav__list {
         display: grid;
@@ -619,7 +615,7 @@
 
     <article tabindex="0" class="page page--art art" id="artifacts" hidden>
       <h2 class="art__heading">Artifacts</h2>
-      <img class="art__img art__img--cover" alt="artifact glitched face of the late Dr. Rashid Buttar" src="images/artifacts-steve-chab.png">
+      <img class="art__img art__img--cover art__img--artifacts" alt="artifact glitched face of the late Dr. Rashid Buttar" src="images/artifacts-steve-chab.png">
     </article>
 
     <article tabindex="0" class="page page--poem" id="american-flag" hidden>
