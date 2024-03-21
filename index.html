@@ -916,6 +916,8 @@ function handleHashChange() {
     window.location.hash = newActivePageEl.id;
   }
 
+  console.log(hash);
+
   var targetElement = document.getElementById(hash) || document.getElementById('home');
 
   activePageEl.hidden = true;
@@ -937,10 +939,7 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-// Swipe events
-// https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
-// MAKE SURE SWIPE IS GREAT THAN A CERTAIN AMOUNT BEFORE DOING ANYTHING
-
+// Swipe events: https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
 var touchstartX = 0,
     touchendX = 0;
     
