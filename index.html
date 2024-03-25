@@ -934,9 +934,9 @@ window.addEventListener('load', function() {
 
 document.addEventListener('keydown', function(event) {
   if (event.key === 'ArrowLeft') {
-    handleHashChange('prev');
+    window.location.hash = 'prev';
   } else if (event.key === 'ArrowRight') {
-    handleHashChange('next');
+    window.location.hash = 'next';
   }
 });
 
