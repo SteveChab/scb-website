@@ -905,7 +905,6 @@
     </article>
   </div>
 <script>
-var umami = false;
 function handleHashChange() {
   var hash = window.location.hash.substring(1),
       activePageEl = document.querySelector('.page:not([hidden])');
@@ -918,9 +917,8 @@ function handleHashChange() {
 
     hash = newActivePageEl.id;
     window.location.hash = newActivePageEl.id;
-  } else if (!!umami) {
-    // https://umami.is/docs/track-events
-    umami.track(hash);
+  } else if (typeof umami !== 'undefined') {
+    umami.track(hash); // https://umami.is/docs/track-events
   }
 
   var targetElement = document.getElementById(hash) || document.getElementById('home');
