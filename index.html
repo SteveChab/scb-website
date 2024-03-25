@@ -902,9 +902,9 @@
     </article>
   </div>
 <script>
-function handleHashChange() {
-  var hash = window.location.hash.substring(1),
-      activePageEl = document.querySelector('.page:not([hidden])');
+function handleHashChange(hash) {
+  var activePageEl = document.querySelector('.page:not([hidden])');
+  hash = hash || window.location.hash.substring(1);
 
   if (hash === 'next' || hash === 'prev') {
     var pagesNodeList = document.querySelectorAll('.page'),
@@ -916,6 +916,7 @@ function handleHashChange() {
     window.location.hash = newActivePageEl.id;
   }
 
+  // https://umami.is/docs/track-events
   console.log(hash);
 
   var targetElement = document.getElementById(hash) || document.getElementById('home');
@@ -933,9 +934,9 @@ window.addEventListener('load', function() {
 
 document.addEventListener('keydown', function(event) {
   if (event.key === 'ArrowLeft') {
-    window.location.hash = 'prev';
+    handleHashChange('prev');
   } else if (event.key === 'ArrowRight') {
-    window.location.hash = 'next';
+    handleHashChange('next');
   }
 });
 
