@@ -220,10 +220,10 @@
       background: url(images/broken-images-cover-art-web.gif) #f65 center center;
       background-size: cover;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       grid-template-areas: 
         "concerts blessing"
-        "social logo"
+        "logo social"
         "copyright copyright";
       justify-items: stretch;
       align-items: end;
@@ -233,6 +233,7 @@
       right: 0;
       top: 0;
       bottom: 0;
+      gap: var(--text-margin);
     }
 
     .header__blessing {
@@ -246,7 +247,6 @@
     .header__heading {
       grid-area: logo;
       margin: 0;
-      text-align: right;
     }
     .header__nav-concerts {
       grid-area: concerts;
@@ -425,6 +425,9 @@
           <ol class="header__nav-concerts__list">
             <li class="header__nav-concerts__list__item">
               <a class="header__nav-concerts__list__item__link" data-umami-event="concert-millvale" href="https://www.millvalemusic.org/">5/18 @ 2pm Caesars Alehouse, Millvale Fest, Pittsburgh, PA (Acoustic)</a>
+            </li>
+            <li class="header__nav-concerts__list__item">
+              5/22 @ 6:30pm Private House Concert, Penn Hills, Pittsburgh, PA (Acoustic)
             </li>
             <li class="header__nav-concerts__list__item">
               <a class="header__nav-concerts__list__item__link" data-umami-event="concert-audiofeed" href="https://audiofeedfestival.com/">7/7 @ 12pm Bloodline Stage, Audiofeed Fest, Urbana, IL (Acoustic)</a>
